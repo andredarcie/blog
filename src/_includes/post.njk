@@ -31,6 +31,13 @@ layout: base.njk
           <div class="listen-thumb" id="listen-thumb"></div>
         </div>
         <span class="listen-count" id="listen-count">0 / 0</span>
+        <select class="listen-speed" id="listen-speed" aria-label="Velocidade">
+          <option value="0.75">0.75×</option>
+          <option value="1" selected>1×</option>
+          <option value="1.25">1.25×</option>
+          <option value="1.5">1.5×</option>
+          <option value="2">2×</option>
+        </select>
         <button class="listen-ctrl" id="stop-btn" aria-label="Parar">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h12v12H6z"/></svg>
         </button>
@@ -55,6 +62,7 @@ layout: base.njk
   const thumb      = document.getElementById('listen-thumb');
   const progress   = document.getElementById('listen-progress');
   const countEl    = document.getElementById('listen-count');
+  const speedEl    = document.getElementById('listen-speed');
   const content    = document.getElementById('post-content');
 
   const pauseIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
@@ -66,6 +74,8 @@ layout: base.njk
 
   let currentIndex = 0;
   let speaking = false;
+  let isPaused = false;
+  let session = 0;
 
   function getVoice() {
     const voices = speechSynthesis.getVoices();
@@ -80,10 +90,13 @@ layout: base.njk
   }
 
   function speakFrom(index) {
+    session++;
     speechSynthesis.cancel();
     currentIndex = index;
+    const mySession = session;
 
     function speakNext() {
+      if (session !== mySession) return;
       if (currentIndex >= paragraphs.length) {
         stop();
         return;
@@ -93,9 +106,9 @@ layout: base.njk
       utt.lang = 'pt-BR';
       const voice = getVoice();
       if (voice) utt.voice = voice;
-      utt.rate = 0.95;
-      utt.onend = () => { currentIndex++; speakNext(); };
-      utt.onerror = () => { currentIndex++; speakNext(); };
+      utt.rate = parseFloat(speedEl.value);
+      utt.onend = () => { if (session === mySession) { currentIndex++; speakNext(); } };
+      utt.onerror = () => { if (session === mySession) { currentIndex++; speakNext(); } };
       speechSynthesis.speak(utt);
     }
 
@@ -103,8 +116,10 @@ layout: base.njk
   }
 
   function stop() {
+    session++;
     speechSynthesis.cancel();
     speaking = false;
+    isPaused = false;
     currentIndex = 0;
     bar.style.width = '0%';
     thumb.style.left = '0%';
@@ -117,11 +132,9 @@ layout: base.njk
     const rect = progress.getBoundingClientRect();
     const pct = (e.clientX - rect.left) / rect.width;
     const target = Math.floor(pct * paragraphs.length);
+    isPaused = false;
+    pauseBtn.innerHTML = pauseIcon;
     speakFrom(Math.max(0, Math.min(target, paragraphs.length - 1)));
-    if (speechSynthesis.paused) {
-      speechSynthesis.resume();
-      pauseBtn.innerHTML = pauseIcon;
-    }
   });
 
   listenBtn.addEventListener('click', () => {
@@ -138,18 +151,27 @@ layout: base.njk
   });
 
   pauseBtn.addEventListener('click', () => {
-    if (speechSynthesis.paused) {
-      speechSynthesis.resume();
+    if (isPaused) {
+      isPaused = false;
       pauseBtn.innerHTML = pauseIcon;
+      speakFrom(currentIndex);
     } else {
-      speechSynthesis.pause();
+      isPaused = true;
+      session++;
+      speechSynthesis.cancel();
       pauseBtn.innerHTML = playIcon;
     }
   });
 
   stopBtn.addEventListener('click', stop);
 
-  // stop if user leaves the page
-  window.addEventListener('beforeunload', () => speechSynthesis.cancel());
+  speedEl.addEventListener('change', () => {
+    if (!controls.hidden) speakFrom(currentIndex);
+  });
+
+  window.addEventListener('pagehide', () => speechSynthesis.cancel());
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') speechSynthesis.cancel();
+  });
 })();
 </script>

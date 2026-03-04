@@ -235,6 +235,18 @@ footer {
   text-align: right;
 }
 
+.listen-speed {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--color-muted);
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  padding: 0.1em 0.3em;
+  cursor: pointer;
+  appearance: none;
+}
+
 .tags {
   list-style: none;
   padding: 0;

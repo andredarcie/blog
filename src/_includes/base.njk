@@ -21,5 +21,12 @@
   <footer>
     <p>&copy; 2026 André N. Darcie</p>
   </footer>
+  <script>
+    if ('speechSynthesis' in window) {
+      window.addEventListener('pageshow', function () {
+        window.speechSynthesis.cancel();
+      });
+    }
+  </script>
 </body>
 </html>
