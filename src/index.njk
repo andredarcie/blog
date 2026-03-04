@@ -1,0 +1,18 @@
+---
+layout: base.njk
+title: Início
+---
+
+<section class="home">
+  <h1>Bem-vindo ao blog</h1>
+  <p class="lead">Pensamentos, tutoriais e coisas que aprendo pelo caminho.</p>
+
+  <ul class="post-list">
+    {% for post in collections.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.data.title }}</a>
+      <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
