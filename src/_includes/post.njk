@@ -6,6 +6,7 @@ layout: base.njk
   <header class="post-header">
     <h1>{{ title }}</h1>
     <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+    <span class="reading-time">{{ content | readingTime }}</span>
     {% if tags %}
     <ul class="tags">
       {% for tag in tags %}
@@ -15,9 +16,140 @@ layout: base.njk
       {% endfor %}
     </ul>
     {% endif %}
+
+    <div class="listen-player" id="listen-player">
+      <button class="listen-btn" id="listen-btn" aria-label="Ouvir post">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Ouvir este post
+      </button>
+      <div class="listen-controls" id="listen-controls" hidden>
+        <button class="listen-ctrl" id="pause-btn" aria-label="Pausar">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+        <div class="listen-progress" id="listen-progress" role="progressbar" aria-label="Progresso da leitura">
+          <div class="listen-bar" id="listen-bar"></div>
+          <div class="listen-thumb" id="listen-thumb"></div>
+        </div>
+        <span class="listen-count" id="listen-count">0 / 0</span>
+        <button class="listen-ctrl" id="stop-btn" aria-label="Parar">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h12v12H6z"/></svg>
+        </button>
+      </div>
+    </div>
   </header>
 
-  <div class="post-content">
+  <div class="post-content" id="post-content">
     {{ content | safe }}
   </div>
 </article>
+
+<script>
+(function () {
+  if (!('speechSynthesis' in window)) return;
+
+  const listenBtn  = document.getElementById('listen-btn');
+  const controls   = document.getElementById('listen-controls');
+  const pauseBtn   = document.getElementById('pause-btn');
+  const stopBtn    = document.getElementById('stop-btn');
+  const bar        = document.getElementById('listen-bar');
+  const thumb      = document.getElementById('listen-thumb');
+  const progress   = document.getElementById('listen-progress');
+  const countEl    = document.getElementById('listen-count');
+  const content    = document.getElementById('post-content');
+
+  const pauseIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+  const playIcon  = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+
+  const paragraphs = Array.from(content.querySelectorAll('p'))
+    .map(p => p.innerText.trim())
+    .filter(t => t.length > 0);
+
+  let currentIndex = 0;
+  let speaking = false;
+
+  function getVoice() {
+    const voices = speechSynthesis.getVoices();
+    return voices.find(v => v.lang.startsWith('pt')) || voices[0] || null;
+  }
+
+  function updateBar() {
+    const pct = paragraphs.length ? (currentIndex / paragraphs.length) * 100 : 0;
+    bar.style.width = pct + '%';
+    thumb.style.left = pct + '%';
+    countEl.textContent = currentIndex + ' / ' + paragraphs.length;
+  }
+
+  function speakFrom(index) {
+    speechSynthesis.cancel();
+    currentIndex = index;
+
+    function speakNext() {
+      if (currentIndex >= paragraphs.length) {
+        stop();
+        return;
+      }
+      updateBar();
+      const utt = new SpeechSynthesisUtterance(paragraphs[currentIndex]);
+      utt.lang = 'pt-BR';
+      const voice = getVoice();
+      if (voice) utt.voice = voice;
+      utt.rate = 0.95;
+      utt.onend = () => { currentIndex++; speakNext(); };
+      utt.onerror = () => { currentIndex++; speakNext(); };
+      speechSynthesis.speak(utt);
+    }
+
+    speakNext();
+  }
+
+  function stop() {
+    speechSynthesis.cancel();
+    speaking = false;
+    currentIndex = 0;
+    bar.style.width = '0%';
+    thumb.style.left = '0%';
+    countEl.textContent = '0 / ' + paragraphs.length;
+    listenBtn.hidden = false;
+    controls.hidden = true;
+  }
+
+  progress.addEventListener('click', (e) => {
+    const rect = progress.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    const target = Math.floor(pct * paragraphs.length);
+    speakFrom(Math.max(0, Math.min(target, paragraphs.length - 1)));
+    if (speechSynthesis.paused) {
+      speechSynthesis.resume();
+      pauseBtn.innerHTML = pauseIcon;
+    }
+  });
+
+  listenBtn.addEventListener('click', () => {
+    speaking = true;
+    listenBtn.hidden = true;
+    controls.hidden = false;
+    pauseBtn.innerHTML = pauseIcon;
+    // wait for voices to load if needed
+    if (speechSynthesis.getVoices().length === 0) {
+      speechSynthesis.addEventListener('voiceschanged', () => speakFrom(0), { once: true });
+    } else {
+      speakFrom(0);
+    }
+  });
+
+  pauseBtn.addEventListener('click', () => {
+    if (speechSynthesis.paused) {
+      speechSynthesis.resume();
+      pauseBtn.innerHTML = pauseIcon;
+    } else {
+      speechSynthesis.pause();
+      pauseBtn.innerHTML = playIcon;
+    }
+  });
+
+  stopBtn.addEventListener('click', stop);
+
+  // stop if user leaves the page
+  window.addEventListener('beforeunload', () => speechSynthesis.cancel());
+})();
+</script>

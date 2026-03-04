@@ -14,6 +14,12 @@ module.exports = function (eleventyConfig) {
     return new Date(date).toISOString().split("T")[0];
   });
 
+  eleventyConfig.addFilter("readingTime", (content) => {
+    const words = content.replace(/<[^>]+>/g, "").trim().split(/\s+/).length;
+    const minutes = Math.ceil(words / 200);
+    return `${minutes} min de leitura`;
+  });
+
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/posts/*.md").reverse();
   });
