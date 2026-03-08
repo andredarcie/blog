@@ -1,5 +1,5 @@
 ---
-title: Criando na velocidade do pensamento
+title: Pela primeira vez, consigo criar na velocidade que tenho ideias
 date: 2026-03-08
 tags:
   - posts
@@ -31,7 +31,9 @@ Com o tempo, fiz faculdade de ciência da computação e comecei a trabalhar com
 
 Aí o tempo sumiu.
 
-A vida foi se enchendo. Restavam algumas horas à noite, às vezes já cansado demais para criar alguma coisa. O fluxo de ideias continuava o mesmo de sempre, mas o tempo disponível para executá-las foi encolhendo. Havia também a necessidade de lazer, de vida social, de simplesmente descansar. Muitas ideias ficaram no rascunho eterno da cabeça.
+A vida foi se enchendo. Restavam algumas horas à noite, às vezes já cansado demais para criar alguma coisa. O fluxo de ideias continuava o mesmo de sempre, mas o tempo disponível para executá-las foi encolhendo. Havia também a necessidade de lazer, de vida social, de simplesmente descansar.
+
+Cheguei a criar uma planilha com todas as ideias de projetos que eu tinha, tentando avaliar por onde começar. Mas ao olhar para aquela lista, tudo parecia demorado e trabalhoso. Cada item representava meses, talvez anos de trabalho. E isso desanimava. Muitas ideias ficaram exatamente ali, naquela planilha, sem sair do lugar.
 
 ## O salto
 
