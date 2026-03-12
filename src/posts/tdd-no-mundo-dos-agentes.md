@@ -51,3 +51,9 @@ Teste cria um **feedback loop forçado**.
 ## Uma boa prática que virou obrigação
 
 No mundo dos agentes de IA, TDD deixou de ser uma boa prática opcional e passou a ser praticamente obrigatório.
+
+Com código gerado por IA, vimos um boom de testes automatizados. Isso fez uma grande diferença: código sem teste perdeu valor, porque agora gerar testes não custa mais nada. Mas podemos ir a um nível acima. Em vez de gerar testes para o código, geramos testes para os requisitos. Isso é TDD, e é o próximo passo.
+
+---
+
+Também postei esse texto no [TabNews](https://www.tabnews.com.br/andredarcie/usar-tdd-deixou-de-ser-opcional-no-mundo-dos-agentes-de-ia).
