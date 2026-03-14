@@ -7,6 +7,8 @@ tags:
   - ciência
 ---
 
+> "Que eu me organizando posso desorganizar" — Chico Science, *Da Lama ao Caos*
+
 Finalmente entendi um conceito que eu queria entender faz tempo. E a melhor forma de explicar começa com uma montanha.
 
 ## A montanha e a chuva
