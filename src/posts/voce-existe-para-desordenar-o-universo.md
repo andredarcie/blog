@@ -7,7 +7,7 @@ tags:
   - ciência
 ---
 
-> "Que eu me organizando posso desorganizar" — Chico Science, *Da Lama ao Caos*
+> "Que eu me organizando posso desorganizar" - Chico Science, *Da Lama ao Caos*
 
 Finalmente entendi um conceito que eu queria entender faz tempo. E a melhor forma de explicar começa com uma montanha.
 
@@ -39,7 +39,7 @@ Não porque havia um plano. Mas porque o sistema que dissipa mais energia tem ma
 
 A conclusão que me impressionou é essa: a vida não é uma exceção às leis da física. É uma consequência delas.
 
-O universo caminha inevitavelmente para o aumento da entropia, que é a tendência de tudo se desordenar. O Sol manda energia organizada para a Terra. A Terra precisa dissipar essa energia. E a forma mais eficiente de fazer isso, ao longo de bilhões de anos, acabou sendo criar estruturas cada vez mais complexas que pegam essa energia e a transformam em calor, radiação, desordem.
+O universo caminha inevitavelmente para o aumento da entropia, que é a tendência de tudo se desordenar. O Sol manda energia organizada para a Terra. E toda essa energia precisa ir embora: no longo prazo, 100% do que entra sai: a Terra irradia de volta ao espaço exatamente o que absorve, só que em forma de calor difuso, radiação infravermelha, desordem. Se não fosse assim, o planeta esquentaria para sempre. A Terra não guarda energia. Ela é um sistema de trânsito. E a forma mais eficiente que esse sistema encontrou, ao longo de bilhões de anos, foi criar estruturas cada vez mais complexas que pegam essa energia organizada e a transformam em desordem o mais rápido possível.
 
 A vida é uma cachoeira feita de química.
 
