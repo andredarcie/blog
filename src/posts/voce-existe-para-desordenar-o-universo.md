@@ -9,7 +9,7 @@ tags:
 
 > "Que eu me organizando posso desorganizar" - Chico Science, *Da Lama ao Caos*
 
-Finalmente entendi um conceito que eu queria entender faz tempo. E a melhor forma de explicar começa com uma montanha.
+Esse post é sobre entropia, termodinâmica e vida. Mais especificamente, sobre por que a vida faz sentido dentro das leis da física, e o que isso diz sobre o papel que ocupamos no universo. Não é sobre como a vida surgiu. Finalmente entendi um conceito que eu queria entender faz tempo. E a melhor forma de explicar começa com uma montanha.
 
 ## A montanha e a chuva
 
@@ -19,7 +19,7 @@ Com o tempo, essas irregularidades começam a concentrar mais água. E mais águ
 
 Com tempo suficiente, esse processo forma riachos. Riachos formam rios. Rios formam cachoeiras. Uma cachoeira é um sistema complexo, estruturado, eficiente. Mas não houve nenhum projeto por trás disso. Nenhuma intenção. Apenas probabilidade, física e tempo.
 
-O ponto chave é que a cachoeira dissipa energia muito mais rápido do que as gotas dispersas faziam. O sistema se complexificou exatamente por isso: porque era termodinamicamente mais eficiente.
+O ponto chave é que a cachoeira dissipa energia muito mais rápido do que as gotas dispersas faziam. O sistema se complexificou, e os arranjos mais eficientes foram os que persistiram.
 
 ## O Sol, a Terra e as primeiras moléculas
 
@@ -29,11 +29,11 @@ O Sol joga energia absurda no planeta Terra em forma de fótons. Essa energia ca
 
 Essas moléculas eram como as primeiras fissuras na montanha.
 
-E aí entra a mesma dinâmica: moléculas que dissipam energia de forma mais eficiente acabam criando condições para gerar mais cópias de si mesmas. Não por intenção, mas porque as leis da física e da química favorecem isso. O ambiente ao redor vai ficando moldado pela presença delas, assim como o terreno vai sendo moldado pela água.
+Vale deixar claro desde já: esse texto não é sobre a origem da vida. Não sei como a vida surgiu, e ninguém sabe com certeza. A origem da vida é uma das questões mais abertas da ciência, e qualquer afirmação definitiva sobre o assunto seria desonesta. O que existe são hipóteses sérias, como a do mundo de RNA, mas hipóteses não são respostas.
 
-Com o tempo, essas moléculas formam estruturas mais complexas. Aparecem reações que sustentam outras reações. Surge o metabolismo, que é essencialmente uma máquina de pegar energia e dissipar ela de forma organizada. E em algum ponto desse processo surge o RNA, uma molécula capaz de copiar informação, de transmitir padrões que funcionam.
+O que me interessa aqui é outra coisa: não o como exatamente, mas o porquê termodinâmico. Por que um universo que tende à desordem produziria algo tão ordenado quanto a vida? Essa pergunta tem uma resposta mais sólida, e é sobre ela que o texto fala.
 
-Não porque havia um plano. Mas porque o sistema que dissipa mais energia tem maior probabilidade de persistir e de se multiplicar.
+E aí entra a mesma dinâmica da montanha: moléculas que dissipam energia de forma mais eficiente tendem a persistir mais. O ambiente ao redor vai ficando moldado pela presença delas, assim como o terreno vai sendo moldado pela água. Com o tempo, estruturas mais complexas aparecem — reações que sustentam outras reações, metabolismo, formas de copiar informação. Não porque havia um plano. Mas porque os arranjos que funcionam melhor são os que sobrevivem por mais tempo.
 
 ## A vida é termodinâmica
 
@@ -43,13 +43,13 @@ O universo caminha inevitavelmente para o aumento da entropia, que é a tendênc
 
 A vida é uma cachoeira feita de química.
 
-E a cachoeira é mais eficiente que as gotas dispersas. Por isso surgiu.
+E a cachoeira é mais eficiente que as gotas dispersas. Por isso persistiu.
 
 ## A inteligência como acelerador
 
 O que me pegou foi a continuação natural dessa ideia: a inteligência humana segue o mesmo padrão.
 
-A gente constrói coisas. Cidades, indústrias, computadores, aviões, servidores. Tudo isso consome energia de forma massiva e a transforma em calor e desordem. Do ponto de vista da entropia, somos extremamente eficientes. Muito mais do que qualquer forma de vida que existiu antes.
+A gente constrói coisas. Cidades, indústrias, computadores, aviões, servidores. Tudo isso consome energia de forma massiva e a transforma em calor e desordem. A civilização humana, em escala planetária, dissipa volumes de energia que nenhuma outra estrutura biológica chegou perto.
 
 A complexidade da civilização não é algo separado da natureza. É a continuação do mesmo processo que começou com as primeiras fissuras moleculares na Terra primitiva.
 
@@ -63,6 +63,6 @@ A gente costuma pensar que existimos por algum propósito maior, por uma razão 
 
 Mas o que a gente faz de concreto para o universo é aumentar a desordem mais rápido.
 
-Isso soa niilista na superfície. Mas penso diferente: significa que a complexidade, a consciência, a inteligência, tudo isso não são acidentes improváveis numa história sem sentido. São o resultado esperado de um universo que tende à entropia e que, ao longo do tempo, encontra formas cada vez mais sofisticadas de chegar lá.
+Isso soa niilista na superfície. Mas penso diferente: significa que a complexidade, a consciência, a inteligência, tudo isso não são acidentes improváveis numa história sem sentido. São um resultado consistente com um universo que tende à entropia e que, ao longo do tempo, favorece formas cada vez mais sofisticadas de dissipar energia.
 
 Você não é um acidente. Você é a solução mais recente para um problema muito antigo.
