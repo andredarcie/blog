@@ -57,4 +57,4 @@ With AI-generated code, we saw a boom in automated tests. That made a big differ
 
 ---
 
-Also posted this text on [TabNews](https://www.tabnews.com.br/andredarcie/usar-tdd-deixou-de-ser-opcional-no-mundo-dos-agentes-de-ia).
+Also posted this text on [TabNews](https://www.tabnews.com.br/andredarcie/usar-tdd-deixou-de-ser-opcional-no-mundo-dos-agentes-de-ia) and [Dev.to](https://dev.to/andredarcie/tdd-is-no-longer-optional-in-the-world-of-ai-agents-5b1e).
