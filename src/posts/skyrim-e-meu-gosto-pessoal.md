@@ -4,6 +4,7 @@ date: 2026-03-04
 tags:
   - posts
   - jogos
+translationKey: skyrim
 ---
 
 O The Elder Scrolls Skyrim foi o primeiro grande jogo em que investi muitas horas. É engraçado, mas demorou anos para eu descobrir o que era de fato o meu gosto pessoal para jogos, e acho que isso é difícil para quem sempre quis manter a mente aberta, experimentando os mais variados tipos de experiências.

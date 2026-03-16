@@ -4,6 +4,7 @@ date: 2026-03-08
 tags:
   - posts
   - pensamentos
+translationKey: truth
 ---
 
 Verdade, pra mim, é uma coisa complicada. O que eu consigo chamar de verdade é basicamente aquilo que você consegue provar. Não que tudo que não pode ser provado seja necessariamente mentira. Mas na busca por verdades, o caminho passa pela busca de provas.

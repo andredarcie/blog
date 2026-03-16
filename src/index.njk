@@ -1,6 +1,8 @@
 ---
 layout: base.njk
 title: Início
+lang: pt
+translationUrl: /en/
 ---
 
 <section class="home">
@@ -8,10 +10,10 @@ title: Início
   <p class="lead">Escrevo sobre tecnologia, sobre como penso e sobre o que me impressiona.</p>
 
   <ul class="post-list">
-    {% for post in collections.posts %}
+    {% for post in collections.postsPt %}
     <li>
       <a href="{{ post.url | url }}">{{ post.data.title }}</a>
-      <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("pt") }}</time>
     </li>
     {% endfor %}
   </ul>

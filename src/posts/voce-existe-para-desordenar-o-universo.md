@@ -5,6 +5,7 @@ tags:
   - posts
   - pensamentos
   - ciência
+translationKey: entropy
 ---
 
 > "Que eu me organizando posso desorganizar" - Chico Science, *Da Lama ao Caos*

@@ -1,6 +1,8 @@
 ---
 layout: base.njk
 title: Sobre
+lang: pt
+translationUrl: /en/about/
 ---
 
 # André N. Darcie

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="{{ 'en' if lang == 'en' else 'pt-BR' }}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +9,28 @@
 <body>
   <header>
     <nav>
-      <a href="{{ '/' | url }}" class="site-title">André N. Darcie</a>
-      <a href="{{ '/sobre/' | url }}">Sobre</a>
+      {% if lang == "en" %}
+        <a href="{{ '/en/' | url }}" class="site-title">André N. Darcie</a>
+        <a href="{{ '/en/about/' | url }}">About</a>
+      {% else %}
+        <a href="{{ '/' | url }}" class="site-title">André N. Darcie</a>
+        <a href="{{ '/sobre/' | url }}">Sobre</a>
+      {% endif %}
+
+      {% if translationKey %}
+        {% set tEntry = collections.translationMap[translationKey] %}
+        {% if lang == "en" and tEntry and tEntry.pt %}
+          <a href="{{ tEntry.pt | url }}" class="lang-switch">Português</a>
+        {% elif lang != "en" and tEntry and tEntry.en %}
+          <a href="{{ tEntry.en | url }}" class="lang-switch">English</a>
+        {% endif %}
+      {% elif translationUrl %}
+        {% if lang == "en" %}
+          <a href="{{ translationUrl | url }}" class="lang-switch">Português</a>
+        {% else %}
+          <a href="{{ translationUrl | url }}" class="lang-switch">English</a>
+        {% endif %}
+      {% endif %}
     </nav>
   </header>
 

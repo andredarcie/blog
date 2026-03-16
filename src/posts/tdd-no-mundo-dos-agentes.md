@@ -5,6 +5,7 @@ tags:
   - posts
   - tecnologia
   - pensamentos
+translationKey: tdd-agents
 ---
 
 > **Test-Driven Development (TDD)** é uma prática de desenvolvimento em que você escreve os testes *antes* de escrever o código. O ciclo é simples: escreva um teste que falha, implemente o mínimo de código para ele passar, refatore. Repetido em loop, isso garante que o código faça exatamente o que foi especificado.

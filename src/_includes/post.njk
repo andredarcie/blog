@@ -5,12 +5,12 @@ layout: base.njk
 <article class="post">
   <header class="post-header">
     <h1>{{ title }}</h1>
-    <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
-    <span class="reading-time">{{ content | readingTime }}</span>
+    <time datetime="{{ date | htmlDateString }}">{{ date | readableDate(lang) }}</time>
+    <span class="reading-time">{{ content | readingTime(lang) }}</span>
     {% if tags %}
     <ul class="tags">
       {% for tag in tags %}
-        {% if tag != "posts" %}
+        {% if tag != "posts" and tag != "posts-en" %}
         <li><a href="/tags/{{ tag }}/">{{ tag }}</a></li>
         {% endif %}
       {% endfor %}
@@ -18,27 +18,27 @@ layout: base.njk
     {% endif %}
 
     <div class="listen-player" id="listen-player">
-      <button class="listen-btn" id="listen-btn" aria-label="Ouvir post">
+      <button class="listen-btn" id="listen-btn" aria-label="{{ 'Listen to post' if lang == 'en' else 'Ouvir post' }}">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        Ouvir este post
+        {{ "Listen to this post" if lang == "en" else "Ouvir este post" }}
       </button>
       <div class="listen-controls" id="listen-controls" hidden>
-        <button class="listen-ctrl" id="pause-btn" aria-label="Pausar">
+        <button class="listen-ctrl" id="pause-btn" aria-label="{{ 'Pause' if lang == 'en' else 'Pausar' }}">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
         </button>
-        <div class="listen-progress" id="listen-progress" role="progressbar" aria-label="Progresso da leitura">
+        <div class="listen-progress" id="listen-progress" role="progressbar" aria-label="{{ 'Reading progress' if lang == 'en' else 'Progresso da leitura' }}">
           <div class="listen-bar" id="listen-bar"></div>
           <div class="listen-thumb" id="listen-thumb"></div>
         </div>
         <span class="listen-count" id="listen-count">0 / 0</span>
-        <select class="listen-speed" id="listen-speed" aria-label="Velocidade">
+        <select class="listen-speed" id="listen-speed" aria-label="{{ 'Speed' if lang == 'en' else 'Velocidade' }}">
           <option value="0.75">0.75×</option>
           <option value="1" selected>1×</option>
           <option value="1.25">1.25×</option>
           <option value="1.5">1.5×</option>
           <option value="2">2×</option>
         </select>
-        <button class="listen-ctrl" id="stop-btn" aria-label="Parar">
+        <button class="listen-ctrl" id="stop-btn" aria-label="{{ 'Stop' if lang == 'en' else 'Parar' }}">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h12v12H6z"/></svg>
         </button>
       </div>
@@ -50,6 +50,7 @@ layout: base.njk
   </div>
 </article>
 
+<script>var POST_LANG = '{{ "en-US" if lang == "en" else "pt-BR" }}';</script>
 <script>
 (function () {
   if (!('speechSynthesis' in window)) return;
@@ -79,7 +80,8 @@ layout: base.njk
 
   function getVoice() {
     const voices = speechSynthesis.getVoices();
-    return voices.find(v => v.lang.startsWith('pt')) || voices[0] || null;
+    const langPrefix = POST_LANG.split('-')[0];
+    return voices.find(v => v.lang.startsWith(langPrefix)) || voices[0] || null;
   }
 
   function updateBar() {
@@ -103,7 +105,7 @@ layout: base.njk
       }
       updateBar();
       const utt = new SpeechSynthesisUtterance(paragraphs[currentIndex]);
-      utt.lang = 'pt-BR';
+      utt.lang = POST_LANG;
       const voice = getVoice();
       if (voice) utt.voice = voice;
       utt.rate = parseFloat(speedEl.value);
@@ -142,7 +144,6 @@ layout: base.njk
     listenBtn.hidden = true;
     controls.hidden = false;
     pauseBtn.innerHTML = pauseIcon;
-    // wait for voices to load if needed
     if (speechSynthesis.getVoices().length === 0) {
       speechSynthesis.addEventListener('voiceschanged', () => speakFrom(0), { once: true });
     } else {

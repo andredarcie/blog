@@ -1,0 +1,20 @@
+---
+layout: base.njk
+title: Home
+lang: en
+translationUrl: /
+---
+
+<section class="home">
+  <h1>Welcome to the blog</h1>
+  <p class="lead">I write about technology, how I think, and what impresses me.</p>
+
+  <ul class="post-list">
+    {% for post in collections.postsEn %}
+    <li>
+      <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+      <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("en") }}</time>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

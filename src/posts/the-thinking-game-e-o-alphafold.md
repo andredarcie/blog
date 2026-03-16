@@ -5,6 +5,7 @@ tags:
   - posts
   - tecnologia
   - ia
+translationKey: alphafold
 ---
 
 Ontem assisti *The Thinking Game*, um documentário da Google, mais especificamente do time da DeepMind, que acompanho há muitos anos. Os projetos deles sempre foram interessantes, mas esse novo documentário traz algo que vai além de tecnologia impressionante.

@@ -5,6 +5,7 @@ tags:
   - posts
   - tecnologia
   - pensamentos
+translationKey: speed-of-thought
 ---
 
 Pela primeira vez na minha vida, estou conseguindo criar coisas na mesma velocidade em que penso. E isso muda fundamentalmente a relação que eu sempre tive com as minhas próprias ideias.

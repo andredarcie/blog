@@ -5,6 +5,7 @@ tags:
   - posts
   - tecnologia
   - realidade virtual
+translationKey: virtual-reality
 ---
 
 Uma coisa que sempre me definiu na relação com tecnologia é buscar a fronteira. Quais são as coisas mais interessantes que estão sendo feitas agora? O que está sendo construído que ainda não chegou para todo mundo?

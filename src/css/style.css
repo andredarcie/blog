@@ -310,3 +310,15 @@ footer {
   padding-left: 1.25rem;
   color: var(--color-muted);
 }
+
+/* Language switch */
+.lang-switch {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.lang-switch:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
