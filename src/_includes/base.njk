@@ -6,9 +6,9 @@
   <title>{{ title }} — André N. Darcie</title>
   <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
   {% if lang == "en" %}
-    <link rel="alternate" type="application/atom+xml" title="André N. Darcie (English)" href="https://andrendarcie.github.io/blog/en/feed.xml" />
+    <link rel="alternate" type="application/atom+xml" title="André N. Darcie (English)" href="https://andredarcie.github.io/blog/en/feed.xml" />
   {% else %}
-    <link rel="alternate" type="application/atom+xml" title="André N. Darcie" href="https://andrendarcie.github.io/blog/feed.xml" />
+    <link rel="alternate" type="application/atom+xml" title="André N. Darcie" href="https://andredarcie.github.io/blog/feed.xml" />
   {% endif %}
 </head>
 <body>
@@ -45,6 +45,11 @@
 
   <footer>
     <p>&copy; 2026 André N. Darcie</p>
+    {% if lang == "en" %}
+      <p><a href="https://andredarcie.github.io/blog/en/feed.xml">RSS</a></p>
+    {% else %}
+      <p><a href="https://andredarcie.github.io/blog/feed.xml">RSS</a></p>
+    {% endif %}
   </footer>
   <script>
     if ('speechSynthesis' in window) {
