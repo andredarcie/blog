@@ -1,4 +1,13 @@
+const {
+  dateToRfc3339,
+  getNewestCollectionItemDate,
+  convertHtmlToAbsoluteUrls,
+} = require("@11ty/eleventy-plugin-rss");
+
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addFilter("dateToRfc3339", dateToRfc3339);
+  eleventyConfig.addFilter("getNewestCollectionItemDate", getNewestCollectionItemDate);
+  eleventyConfig.addFilter("htmlToAbsoluteUrls", convertHtmlToAbsoluteUrls);
   eleventyConfig.addPassthroughCopy("src/css");
 
   eleventyConfig.addFilter("readableDate", (date, lang) => {

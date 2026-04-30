@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ title }} — André N. Darcie</title>
   <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
+  {% if lang == "en" %}
+    <link rel="alternate" type="application/atom+xml" title="André N. Darcie (English)" href="https://andrendarcie.github.io/blog/en/feed.xml" />
+  {% else %}
+    <link rel="alternate" type="application/atom+xml" title="André N. Darcie" href="https://andrendarcie.github.io/blog/feed.xml" />
+  {% endif %}
 </head>
 <body>
   <header>

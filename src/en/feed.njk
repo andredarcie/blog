@@ -1,0 +1,26 @@
+---
+permalink: /en/feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>André N. Darcie</title>
+  <subtitle>André N. Darcie's personal blog</subtitle>
+  <link href="https://andrendarcie.github.io/blog/en/feed.xml" rel="self"/>
+  <link href="https://andrendarcie.github.io/blog/en/"/>
+  <updated>{{ collections.postsEn | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>https://andrendarcie.github.io/blog/en/</id>
+  <author>
+    <name>André N. Darcie</name>
+  </author>
+  {% for post in collections.postsEn %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="https://andrendarcie.github.io{{ post.url }}"/>
+    <id>https://andrendarcie.github.io{{ post.url }}</id>
+    <published>{{ post.date | dateToRfc3339 }}</published>
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls("https://andrendarcie.github.io/blog/") | safe }}</content>
+  </entry>
+  {% endfor %}
+</feed>
