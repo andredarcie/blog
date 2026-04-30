@@ -20,7 +20,7 @@ eleventyExcludeFromCollections: true
     <id>https://andredarcie.github.io{{ post.url }}</id>
     <published>{{ post.date | dateToRfc3339 }}</published>
     <updated>{{ post.date | dateToRfc3339 }}</updated>
-    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls("https://andredarcie.github.io/blog/") | safe }}</content>
+    <content type="html"><![CDATA[{{ post.templateContent | htmlToAbsoluteUrls("https://andredarcie.github.io/blog/") | safe }}]]></content>
   </entry>
   {% endfor %}
 </feed>
