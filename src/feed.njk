@@ -16,8 +16,8 @@ eleventyExcludeFromCollections: true
   {% for post in collections.postsPt %}
   <entry>
     <title>{{ post.data.title }}</title>
-    <link href="https://andredarcie.github.io{{ post.url }}"/>
-    <id>https://andredarcie.github.io{{ post.url }}</id>
+    <link href="https://andredarcie.github.io{{ post.url | url }}"/>
+    <id>https://andredarcie.github.io{{ post.url | url }}</id>
     <published>{{ post.date | dateToRfc3339 }}</published>
     <updated>{{ post.date | dateToRfc3339 }}</updated>
     <content type="html"><![CDATA[{{ post.templateContent | htmlToAbsoluteUrls("https://andredarcie.github.io/blog/") | safe }}]]></content>
