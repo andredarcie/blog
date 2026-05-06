@@ -9,6 +9,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("getNewestCollectionItemDate", getNewestCollectionItemDate);
   eleventyConfig.addFilter("htmlToAbsoluteUrls", convertHtmlToAbsoluteUrls);
   eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/img");
 
   eleventyConfig.addFilter("readableDate", (date, lang) => {
     const locale = lang === "en" ? "en-US" : "pt-BR";
