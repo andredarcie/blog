@@ -1,5 +1,5 @@
 ---
-title: Como usar um agente de IA para praticar TDD do zero
+title: Como escrever código mais confiável com SDD, TDD e agentes de IA
 date: 2026-05-06
 tags:
   - posts
@@ -13,7 +13,7 @@ Este tutorial mostra como usar um agente de IA para praticar TDD do zero, partin
 
 Na prática, o que vamos fazer é **Spec-Driven Development alimentando o ciclo TDD**: a especificação gera os testes, os testes guiam a implementação.
 
-O exemplo é um caso de uso simples/abstraido: **criar conta de usuário**.
+O exemplo é um caso de uso simples/abstraído: **criar conta de usuário**.
 
 > **Para refletir:** Você conhece ou usa SDD no seu dia a dia?
 
@@ -283,9 +283,7 @@ dotnet stryker
 
 Com os testes automatizados passando, valide o comportamento real da feature em ambiente de homologação ou por meio de testes manuais. Ferramentas e integrações que os testes unitários não cobrem só aparecem aqui.
 
-Se algo der errado, não tente corrigir diretamente no código. Volte ao Passo 1 e trate o bug como uma nova demanda:
-
-Descreva o comportamento incorreto como um requisito, o que deveria acontecer e o que está acontecendo, volte para o passo 1.
+Se algo der errado, não tente corrigir diretamente no código. Volte ao Passo 1 e trate o bug como uma nova demanda: descreva o comportamento incorreto, o que deveria acontecer e o que está acontecendo.
 
 > **Por que isso importa?** Um bug corrigido sem teste pode voltar sem que ninguém perceba. O teste que comprova o bug é a garantia de que ele nunca mais vai passar despercebido.
 
