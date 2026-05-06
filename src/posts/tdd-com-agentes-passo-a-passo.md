@@ -114,6 +114,8 @@ TDD (Test-Driven Development) é uma técnica de desenvolvimento em três fases:
 | GREEN | Escrever o mínimo de código para os testes passarem. |
 | REFACTOR | Melhorar o código sem quebrar os testes. |
 
+![TDD vs sem TDD](/img/tdd.png)
+
 ### Ameaça e defesa
 ![Diagrama de ameaça e defesa no TDD](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vy4awm5rtzx1sqa2xa84.png)
 
