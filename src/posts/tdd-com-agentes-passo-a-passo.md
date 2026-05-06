@@ -15,6 +15,8 @@ Na prática, o que vamos fazer é **Spec-Driven Development alimentando o ciclo 
 
 O exemplo é um caso de uso simples/abstraido: **criar conta de usuário**.
 
+> **Para refletir:** Você conhece ou usa SDD no seu dia a dia?
+
 ## O que é SDD?
 
 SDD (Spec-Driven Development) é a prática de escrever a especificação antes de qualquer código ou teste. A spec é a fonte da verdade: tudo o que vier depois deve derivar dela.
@@ -27,24 +29,7 @@ SDD (Spec-Driven Development) é a prática de escrever a especificação antes 
 
 O SDD resolve um problema sutil do TDD puro: de onde vêm os testes? Sem uma spec clara, os testes tendem a refletir o que o desenvolvedor já imaginou como implementação, não o que o sistema deveria fazer.
 
-## O que é TDD?
-
-TDD (Test-Driven Development) é uma técnica de desenvolvimento em três fases:
-
-| Fase | O que fazer |
-|------|-------------|
-| RED | Escrever os testes antes do código. Eles devem falhar. |
-| GREEN | Escrever o mínimo de código para os testes passarem. |
-| REFACTOR | Melhorar o código sem quebrar os testes. |
-
-### Ameaça e defesa
-![Diagrama de ameaça e defesa no TDD](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vy4awm5rtzx1sqa2xa84.png)
-
-## Como os dois se conectam
-
-O SDD responde "o que o sistema deve fazer". O TDD responde "como garantir que ele faz". Neste tutorial, os **Passos 1 e 2 são o SDD**. Os **Passos 3 em diante são o TDD**.
-
-> **Para refletir:** Você já usou TDD? Qual foi a maior dificuldade?
+> **Para refletir:** Quando você começa uma feature, seu primeiro passo é escrever a spec, o código ou os testes?
 
 ## Passo 1: Definir os requisitos (SDD)
 
@@ -99,7 +84,7 @@ A conta é criada e o sistema confirma com:
 Faltou alguma coisa importante que não considerei? Algum edge case?
 ```
 
-## Passo 2: Visualizar o fluxo
+## Passo 2: Visualizar o fluxo (SDD)
 
 Com os requisitos prontos, gere um fluxograma para validar o entendimento antes de escrever código.
 
@@ -115,7 +100,24 @@ da esquerda para a direita exemplificando o fluxo.
 
 > **Por que isso importa?** O fluxograma torna visível a ordem das validações e os caminhos de erro. É mais fácil revisar um diagrama com o time do que revisar código.
 
-## Passo 3: Criar a classe sem implementação (RED)
+> **Para refletir:** Você já usou TDD? Qual foi a maior dificuldade?
+
+## O que é TDD?
+
+A partir daqui começa o TDD. O SDD gerou a especificação; o TDD vai usá-la para guiar a implementação.
+
+TDD (Test-Driven Development) é uma técnica de desenvolvimento em três fases:
+
+| Fase | O que fazer |
+|------|-------------|
+| RED | Escrever os testes antes do código. Eles devem falhar. |
+| GREEN | Escrever o mínimo de código para os testes passarem. |
+| REFACTOR | Melhorar o código sem quebrar os testes. |
+
+### Ameaça e defesa
+![Diagrama de ameaça e defesa no TDD](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vy4awm5rtzx1sqa2xa84.png)
+
+## Passo 3: Criar a classe sem implementação (TDD: RED)
 
 Crie apenas o esqueleto da classe, com as dependências e a assinatura do método, sem nenhuma lógica. O método deve lançar `NotImplementedException`.
 
@@ -150,7 +152,7 @@ public class CreateUserUseCase
 }
 ```
 
-## Passo 4: Escrever os testes (RED)
+## Passo 4: Escrever os testes (TDD: RED)
 
 Com a classe vazia criada, peça à IA para escrever os testes baseando-se nos requisitos. Os testes devem falhar neste momento, isso é esperado e correto.
 
@@ -184,7 +186,7 @@ Antes de implementar, **feche o agente completamente e abra uma nova conversa** 
 
 > Na fase GREEN, a única fonte da verdade é o teste. Não o requisito, não o fluxograma, não a conversa anterior.
 
-## Passo 6: Implementar para passar nos testes (GREEN)
+## Passo 6: Implementar para passar nos testes (TDD: GREEN)
 
 Na nova sessão, mostre apenas os testes e a classe vazia. O objetivo aqui é **apenas fazer os testes passarem**, sem se preocupar com qualidade, padrões ou boas práticas ainda.
 
@@ -202,7 +204,7 @@ crie a implementação do caso de uso.
 
 > **Para refletir:** Com os testes passando, você colocaria esse código em produção?
 
-## Passo 7: Identificar os problemas (REFACTOR)
+## Passo 7: Identificar os problemas (TDD: REFACTOR)
 
 Com os testes verdes, peça à IA para revisar o código com olhar crítico.
 
@@ -218,7 +220,7 @@ com base nas boas práticas de desenvolvimento.
 
 ![Problemas encontrados no código](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/331j0ug2wvo4qj2kjrdo.png)
 
-## Passo 8: Refatorar (REFACTOR)
+## Passo 8: Refatorar (TDD: REFACTOR)
 
 Com a lista de problemas em mãos, peça à IA para corrigi-los. Os testes são a rede de segurança: se alguma refatoração quebrar o comportamento, os testes vão acusar imediatamente.
 
@@ -294,9 +296,9 @@ Descreva o comportamento incorreto como um requisito, o que deveria acontecer e 
 O ciclo completo ficou assim:
 
 ```plaintext
-Requisitos → Fluxograma → Esqueleto → Testes falhando
-→ Fechar agente → Implementação passando → Refatoração → Testes passando
-→ Mutation Testing → Homologação
+[SDD] Requisitos → Fluxograma
+[TDD] Esqueleto → Testes falhando → Fechar agente → Implementação passando → Refatoração → Testes passando
+[+]   Mutation Testing → Homologação
 ```
 
 TDD com IA significa usar o agente de IA para acelerar cada etapa do ciclo enquanto você, desenvolvedor, mantém o controle das decisões importantes: o que o sistema deve fazer, quais casos precisam ser testados e quando o código está bom o suficiente para ir para produção.
