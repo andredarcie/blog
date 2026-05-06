@@ -27,7 +27,6 @@ SDD (Spec-Driven Development) é a prática de escrever a especificação antes 
 | Validar | Revisar a spec antes de escrever qualquer código |
 | Derivar | Usar a spec como base para os testes |
 
-O SDD resolve um problema sutil do TDD puro: de onde vêm os testes? Sem uma spec clara, os testes tendem a refletir o que o desenvolvedor já imaginou como implementação, não o que o sistema deveria fazer.
 
 > **Para refletir:** Quando você começa uma feature, seu primeiro passo é escrever a spec, o código ou os testes?
 
