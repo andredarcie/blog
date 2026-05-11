@@ -134,6 +134,34 @@ footer {
   margin-top: 0.25rem;
 }
 
+/* Post actions (PDF, listen) */
+.post-actions {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 0.4em 0.85em;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.pdf-btn:hover {
+  color: var(--color-text);
+  border-color: #bbb;
+}
+
 /* Listen player */
 .listen-player {
   margin-top: 1.25rem;
@@ -328,4 +356,73 @@ footer {
 .lang-switch:hover {
   color: var(--color-text);
   text-decoration: underline;
+}
+
+/* Print / PDF */
+@media print {
+  body > header, footer, .post-actions, .listen-player, .tags {
+    display: none !important;
+  }
+
+  body {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #000;
+    background: #fff;
+  }
+
+  main {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .post-header {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.75rem;
+  }
+
+  .post-header h1 {
+    font-size: 20pt;
+    margin-bottom: 0.25rem;
+  }
+
+  .post-header time,
+  .reading-time {
+    display: inline;
+    font-size: 9pt;
+    color: #555;
+  }
+
+  .post-content img {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+
+  .post-content pre {
+    background: #f4f4f4;
+    color: #000;
+    border: 1px solid #ddd;
+    page-break-inside: avoid;
+    font-size: 8pt;
+  }
+
+  .post-content h2 {
+    page-break-after: avoid;
+  }
+
+  .post-content p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: none;
+  }
 }
