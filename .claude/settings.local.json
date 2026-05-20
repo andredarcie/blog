@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"C:\\\\repos\\\\blog\" -Force | Where-Object { $_.Name -ne \"node_modules\" } | Format-Table Name, PSIsContainer -AutoSize)",
+      "PowerShell(Get-ChildItem \"C:\\\\repos\\\\blog\\\\src\" -Recurse | Where-Object { !$_.PSIsContainer } | Format-Table FullName -AutoSize)"
+    ]
+  }
+}
